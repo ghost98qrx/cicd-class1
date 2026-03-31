@@ -5,7 +5,7 @@ on:
         - master
         - devops
         - whatever
-j0bs:
+jobs:
   simplejob:
     runs-on: ubuntu-latest
     steps:
