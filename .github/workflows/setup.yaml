@@ -1,14 +1,24 @@
-name: Basic workflow
-on:
-   push:
-      branches:
-        - master
-        - devops
-        - whatever
-jobs:
-  simplejob:
-    runs-on: self-hosted
-    steps:
-    - name: greeting step
-      run: echo "welcome world"
-      
+name: Basic Workflow
+on: 
+  push:
+    branches: 
+    - master
+    - devops
+    - whatever
+jobs: 
+  simplejob: ## <-- name of the job
+    runs-on: self-hosted # Runner (agent for carrying out job)
+    steps: 
+    - name: install nginx
+      run: |
+        sudo apt update -y
+        sudo apt install nginx -y
+
+    - name: checkout
+      uses: actions/checkout@v6
+  
+    - name: Setup web
+      run : |
+        sudo rm -f /var/www/html/index.*
+        sudo cp -r web/* /var/www/html/
+        
