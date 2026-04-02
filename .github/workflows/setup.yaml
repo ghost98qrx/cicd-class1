@@ -7,7 +7,8 @@ on:
         - whatever
 jobs:
   simplejob:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
     - name: greeting step
       run: echo "welcome world"
+      
